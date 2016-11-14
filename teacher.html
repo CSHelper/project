@@ -13,6 +13,8 @@
 		<link href="css/styles.css" rel="stylesheet">
 		<link href="css/timeline.css" rel="stylesheet">
 		<link href="css/calendar.css" rel="stylesheet">
+		<link rel='stylesheet' href='accordion.css' />
+		<script src="accordion.js"></script>
 		
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -86,20 +88,48 @@
         <!-- problem setup -->
         <div class="col-sm-3">
         	<div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="more-less glyphicon glyphicon-plus"></i>
-                        Collapsible Group Item #1
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                      hi
-                </div>
-            </div>
-        </div>
+	            <div class="panel-heading" role="tab" id="headingOne">
+	                <h4 class="panel-title">
+	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	                        <i class="more-less glyphicon glyphicon-plus"></i>
+	                        Section
+	                    </a>
+	                </h4>
+	            </div>
+	        	<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+	                <div class="panel-body">
+	                              	<div class="panel panel-default">
+	                      	            <div class="panel-heading" role="tab" id="headingOne">
+	                      	                <h4 class="panel-title">
+	                      	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+	                      	                        <i class="more-less glyphicon glyphicon-plus"></i>
+	                      	                        Topic
+	                      	                    </a>
+	                      	                </h4>
+	                      	            </div>
+	                      	        	<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+	                      	                <div class="panel-body">
+	                      	                              	<div class="panel panel-default">
+	                      	                      	            <div class="panel-heading" role="tab" id="headingOne">
+	                      	                      	                <h4 class="panel-title">
+	                      	                      	                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+	                      	                      	                        <i class="more-less glyphicon glyphicon-plus"></i>
+	                      	                      	                        Problem
+	                      	                      	                    </a>
+	                      	                      	                </h4>
+	                      	                      	            </div>
+	                      	                      	        	<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+	                      	                      	                <div class="panel-body">
+	                      	                      	                      hi dad
+	                      	                      	                </div>
+	                      	                      	            </div>
+	                      	                              	</div>
+	                      	                </div>
+	                      	            </div>
+	                              	</div>
+	                </div>
+	            </div>
+        	</div>
         </div>
         <!--/col-span-6-->
         <div class="col-sm-6">
