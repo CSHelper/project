@@ -44,3 +44,18 @@ body {
     padding-top: 60px;
     padding-bottom: 60px;
 }
+
+#sectionCollapse {
+	background-color: #428BCA;	
+}
+
+.topicCollapse {
+	background-color: #d2d2d2;
+	text-indent: 16px;
+}
+
+.problemCollapse {
+	background-color: white;
+	text-indent: 32px;
+}
+
