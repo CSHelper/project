@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Teacher</title>
+	
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">	
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!-- css -->
+		<link href="css/styles.css" rel="stylesheet">
+		<link href="css/timeline.css" rel="stylesheet">
+		<link href="css/calendar.css" rel="stylesheet">
+		<link rel='stylesheet' href='accordion.css' />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		<!-- script references -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="modernizr.js"></script>
+		<script src="js/scripts.js"></script>
+		<script src="accordion.js"></script>
+
+	</head>
+	<body>
+<!-- header -->
+<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Student Statistics Dashboard</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+                    <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                        <li><a href="#">My Profile</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="glyphicon glyphicon-lock"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- /container -->
+</div>
+<!-- /Header -->
+
+<!-- Main -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">  <!-- Student List Column -->
+            <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu</strong></a>
+
+            <hr>
+
+            <!--<ul class="nav nav-stacked">
+                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Student List<i class="glyphicon glyphicon-chevron-down"></i></a>
+                    <ul class="nav nav-stacked collapse in" id="userMenu">
+                        <li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Sunny Aroh</a></li>
+                        <li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Dustin Cox</a></li>
+						<li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Frank Sanchez</a></li>
+						<li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Tommy Shay</a></li>
+						<li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Nghia Tran</a></li>
+                    </ul>
+                </li>
+                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2"> Reports <i class="glyphicon glyphicon-chevron-right"></i></a>
+
+                    <ul class="nav nav-stacked collapse" id="menu2">
+                        <li><a href="#">Information &amp; Statistics</a>
+                        </li>
+                        <li><a href="#">Class Statistics</a>
+                        </li>
+                        <li><a href="#">Alerts</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>-->
+
+              <form>
+			    <div class="form-group">
+			      <label for="sel2">Student List (hold ctrl to select more than one):</label>
+			      <select multiple class="form-control" id="sel2">
+			        <option>Dustin</option>
+			        <option>Sunday</option>
+			        <option>Eric</option>
+			        <option>Ryan</option>
+			        <option>Frank</option>
+			        <option>Tommy</option>
+			      </select>
+			    </div>
+			  </form>
+
+            <hr>
+        </div>
+        
+        <div class="col-sm-3"> <!-- Section - Topic - Problem Column (Accordion) -->
+			<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Choose a Problem</strong></a>
+
+            <hr>
+		
+        	  <form>
+			    <div class="form-group">
+			      <label for="sel1">Select Language:</label>
+			      <select class="form-control" id="sel1">
+			        <option>Java</option>
+			        <option>C++</option>
+			        <option>C</option>
+			        <option>Python</option>
+			      </select>
+			      </br>
+			      <label for="sel1">Select Section:</label> <!--Assuming java basics selected-->
+			      <select class="form-control" id="sel1">
+			        <option>Java Basics</option>
+			        <option>Conditional Statements</option>
+			        <option>Loops</option>
+			      </select>
+			      </br>
+			      <label for="sel1">Select Topic:</label> <!--Assuming java basics selected-->
+			      <select class="form-control" id="sel1">
+			        <option>Data Types</option>
+			        <option>If Statements</option>
+			        <option>Output</option>
+			      </select>
+			    </div>
+			  </form>
+        	
+        </div>
+        
+        <div class="col-sm-7"> <!-- Problem / Attempt Column -->
+			<a href="#"><strong><i class="glyphicon glyphicon-education"></i> Problem Creation</strong></a>
+
+            <hr>
+		
+		
+			<div class="form-group">
+				  <label for="comment">Input a problem:</label>
+				  <textarea class="form-control" rows="5" id="comment"></textarea>
+			</div>
+			
+			
+			</br>
+
+			<div class="row">
+				<div class="col-sm-2">
+					<label for="usr">Input 1:</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<label for="usr">Output 1:</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+
+
+				</br>
+				<div class="col-sm-2">
+					<label for="usr">Input 2:</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<label for="usr">Output 2:</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+
+				</br>
+				<div class="col-sm-2">
+					<label for="usr">Input 3:</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<label for="usr">Output 3:</label>
+				</div>
+				<div class="col-sm-4">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+    		</div>
+
+    		<br/>
+    		<br/>
+
+    		<div class="row">
+    			<div class="col-sm-2">
+					<label for="usr">Hint 1:</label>
+				</div>
+				<div class="col-sm-10">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<label for="usr">Hint 2:</label>
+				</div>
+				<div class="col-sm-10">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<label for="usr">Hint 3:</label>
+				</div>
+				<div class="col-sm-10">
+					<div class="form-group">
+					  <input type="text" class="form-control" id="usr">
+					</div>
+				</div>
+    		</div>
+
+			
+			
+        </div>
+    </div>
+</div>
+<!-- /Main -->
+
+<footer class="text-center"> </footer>
+
+
+		
+	</body>
+</html>
