@@ -20,7 +20,7 @@
 		<script src="modernizr.js"></script>
 		<script src="js/scripts.js"></script>
 		<script src="accordion.js"></script>
-
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body>
 <!-- header -->
@@ -51,155 +51,107 @@
 <!-- /Header -->
 
 <!-- Main -->
+<form>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">  <!-- Student List Column -->
-            <a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu</strong></a>
+		<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu</strong></a>
+		<hr>
 
-            <hr>
+		<div class="form-group">
+			<label for="sel2">Student List (hold ctrl to select more than one):</label>
+			<select multiple class="form-control" id="sel2">
+				<option>Dustin</option>
+				<option>Sunday</option>
+				<option>Eric</option>
+				<option>Ryan</option>
+				<option>Frank</option>
+				<option>Tommy</option>
+			</select>
+		</div>
 
-            <!--<ul class="nav nav-stacked">
-                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu">Student List<i class="glyphicon glyphicon-chevron-down"></i></a>
-                    <ul class="nav nav-stacked collapse in" id="userMenu">
-                        <li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Sunny Aroh</a></li>
-                        <li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Dustin Cox</a></li>
-						<li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Frank Sanchez</a></li>
-						<li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Tommy Shay</a></li>
-						<li class="active"> <a href="#"><i class="glyphicon glyphicon glyphicon-user"></i> Nghia Tran</a></li>
-                    </ul>
-                </li>
-                <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2"> Reports <i class="glyphicon glyphicon-chevron-right"></i></a>
-
-                    <ul class="nav nav-stacked collapse" id="menu2">
-                        <li><a href="#">Information &amp; Statistics</a>
-                        </li>
-                        <li><a href="#">Class Statistics</a>
-                        </li>
-                        <li><a href="#">Alerts</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>-->
-
-              <form>
-			    <div class="form-group">
-			      <label for="sel2">Student List (hold ctrl to select more than one):</label>
-			      <select multiple class="form-control" id="sel2">
-			        <option>Dustin</option>
-			        <option>Sunday</option>
-			        <option>Eric</option>
-			        <option>Ryan</option>
-			        <option>Frank</option>
-			        <option>Tommy</option>
-			      </select>
-			    </div>
-			  </form>
-
-            <hr>
+		<hr>
         </div>
         
         <div class="col-sm-3"> <!-- Section - Topic - Problem Column (Accordion) -->
-			<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Choose a Problem</strong></a>
+		<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Choose a Problem</strong></a>
 
-            <hr>
-		
-        	  <form>
-			    <div class="form-group">
-			      <label for="sel1">Select Language:</label>
-			      <select class="form-control" id="sel1">
-			        <option>Java</option>
-			        <option>C++</option>
-			        <option>C</option>
-			        <option>Python</option>
-			      </select>
-			      </br>
-			      <label for="sel1">Select Section:</label> <!--Assuming java basics selected-->
-			      <select class="form-control" id="sel1">
-			        <option>Java Basics</option>
-			        <option>Conditional Statements</option>
-			        <option>Loops</option>
-			      </select>
-			      </br>
-			      <label for="sel1">Select Topic:</label> <!--Assuming java basics selected-->
-			      <select class="form-control" id="sel1">
-			        <option>Data Types</option>
-			        <option>If Statements</option>
-			        <option>Output</option>
-			      </select>
-			    </div>
-			  </form>
-        	
+		<hr>
+			<div class="form-group">
+				<label for="sel1">Select Language:</label>
+				<select class="form-control" id="sel1">
+					<option>Java</option>
+					<option>C++</option>
+					<option>C</option>
+					<option>Python</option>
+				</select>
+				</br>
+				</br>
+				</br>
+				<label for="sel1">Select Section:</label> <!--Assuming java basics selected-->
+				<select class="form-control" id="sel1">
+					<option>Java Basics</option>
+					<option>Conditional Statements</option>
+					<option>Loops</option>
+				</select>
+				</br>
+				</br>
+				</br>
+				<label for="sel1">Select Topic:</label> <!--Assuming java basics selected-->
+				<select class="form-control" id="sel1">
+					<option>Data Types</option>
+					<option>If Statements</option>
+					<option>Output</option>
+				</select>
+			</div>
         </div>
         
+	
         <div class="col-sm-7"> <!-- Problem / Attempt Column -->
-			<a href="#"><strong><i class="glyphicon glyphicon-education"></i> Problem Creation</strong></a>
+		<a href="#"><strong><i class="glyphicon glyphicon-education"></i> Problem Creation</strong></a>
 
-            <hr>
+		<hr>
 		
 		
-			<div class="form-group">
-				  <label for="comment">Input a problem:</label>
-				  <textarea class="form-control" rows="5" id="comment"></textarea>
+		<div class="form-group">
+			<label for="comment">Input a problem:</label>
+			<textarea class="form-control" rows="5" id="comment"></textarea>
+		</div>
+		
+		<div id="Input1" class="input">	
+			<hr>
+			<div>
+				<label for="usr">Input</label>
+				</br>
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="usr">Name:</label>
+					</div>
+					<div class="col-sm-6">
+						<label for="usr">Data Type:</label>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-sm-6">
+						<div class="form-group">
+						  <input type="text" class="form-control" id="usr">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>int</option>
+								<option>double</option>
+								<option>float</option>
+								<option>char</option>
+							</select>
+						</div>
+					</div>
+				</div>
 			</div>
-			
-			
-			</br>
+		</div>
 
-			<div class="row">
-				<div class="col-sm-2">
-					<label for="usr">Input 1:</label>
-				</div>
-				<div class="col-sm-4">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<label for="usr">Output 1:</label>
-				</div>
-				<div class="col-sm-4">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-
-
-				</br>
-				<div class="col-sm-2">
-					<label for="usr">Input 2:</label>
-				</div>
-				<div class="col-sm-4">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<label for="usr">Output 2:</label>
-				</div>
-				<div class="col-sm-4">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-
-				</br>
-				<div class="col-sm-2">
-					<label for="usr">Input 3:</label>
-				</div>
-				<div class="col-sm-4">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<label for="usr">Output 3:</label>
-				</div>
-				<div class="col-sm-4">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-    		</div>
 
     		<br/>
     		<br/>
@@ -236,11 +188,37 @@
         </div>
     </div>
 </div>
+</form>
 <!-- /Main -->
 
 <footer class="text-center"> </footer>
 
 
+
+<script>
+/*
+//$( ".in" ).append( "document.getElementById("input")" );
+
+/ get the last DIV which ID starts with ^= "Input"
+var $div = $('div[id^="Input"]:last');
+
+// Read the Number from that DIV's ID (i.e: 3 from "Input3")
+// And increment that number by 1
+var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+
+// Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+var $Input = "#" + $div.clone().prop('id', 'Input'+num );
+//$( $div ).append( $Input );
+
+//$("#input").append(Input);
+//$($Input).insertAfter($div);
+*/
+
+var $Input = "#Input1"
+$($Input).clone().insertAfter("div.input:last");
+
+
+</script>
 		
 	</body>
 </html>
