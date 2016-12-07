@@ -56,28 +56,28 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2">  <!-- Student List Column -->
-		<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu</strong></a>
-		<hr>
+			<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu</strong></a>
+			<hr>
 
-		<div class="form-group">
-			<label for="sel2">Student List (hold ctrl to select more than one):</label>
-			<select multiple class="form-control" id="sel2">
-				<option>Dustin</option>
-				<option>Sunday</option>
-				<option>Eric</option>
-				<option>Ryan</option>
-				<option>Frank</option>
-				<option>Tommy</option>
-			</select>
-		</div>
+			<div class="form-group">
+				<label for="sel2">Student List (hold ctrl to select more than one):</label>
+				<select multiple class="form-control" id="sel2">
+					<option>Dustin</option>
+					<option>Sunday</option>
+					<option>Eric</option>
+					<option>Ryan</option>
+					<option>Frank</option>
+					<option>Tommy</option>
+				</select>
+			</div>
 
-		<hr>
+			<hr>
         </div>
         
         <div class="col-sm-3"> <!-- Section - Topic - Problem Column (Accordion) -->
-		<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Choose a Problem</strong></a>
+			<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Choose a Problem</strong></a>
 
-		<hr>
+			<hr>
 			<div class="form-group">
 				<label for="sel1">Select Language:</label>
 				<select class="form-control" id="sel1">
@@ -109,21 +109,21 @@
         
 	
         <div class="col-sm-7"> <!-- Problem / Attempt Column -->
-		<a href="#"><strong><i class="glyphicon glyphicon-education"></i> Problem Creation</strong></a>
+			<a href="#"><strong><i class="glyphicon glyphicon-education"></i> Problem Creation</strong></a>
 
-		<hr>
-		
-		
-		<div class="form-group">
-			<label for="comment">Input a problem:</label>
-			<textarea class="form-control" rows="5" id="comment"></textarea>
-		</div>
-		
-		<div>
-			<button onclick="addFunction()">Add an Input</button>
-		</div>
-		
-		<div id="inputProblem"></div>
+			<hr>
+			
+			
+			<div class="form-group">
+				<label for="comment">Input a problem:</label>
+				<textarea class="form-control" rows="5" id="comment"></textarea>
+			</div>
+			
+			<div>
+				<button onclick="addFunction()">Add an Input</button>
+			</div>
+			
+			<div id="inputProblem"></div>
 
 
     		<br/>
@@ -202,8 +202,6 @@ let template = `<div id="input{{unique}}" class="input">
 			</div>
 		</div>`;
 let id = 1;
-
- 
 function addFunction() {
 	
 	$( "#inputProblem" ).append( template.replace('{{unique}}', id)
@@ -213,7 +211,6 @@ function addFunction() {
 	id++
 	console.log(15 + 6);
 }
-//$('addInput').on("click",
 </script>
 		
 	</body>
