@@ -17,10 +17,10 @@
 		<!-- script references -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="modernizr.js"></script>
+		<!--<script src="modernizr.js"></script>-->
 		<script src="js/scripts.js"></script>
 		<script src="accordion.js"></script>
-		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		
 	</head>
 	<body>
 <!-- header -->
@@ -51,7 +51,7 @@
 <!-- /Header -->
 
 <!-- Main -->
-<form>
+
 
 <div class="container-fluid">
     <div class="row">
@@ -119,6 +119,10 @@
 			<textarea class="form-control" rows="5" id="comment"></textarea>
 		</div>
 		
+		<div>
+			<button onclick="addFunction()">Add</button>
+		</div>
+		
 		<div id="inputProblem"></div>
 
 
@@ -157,7 +161,7 @@
         </div>
     </div>
 </div>
-</form>
+
 <!-- /Main -->
 
 <footer class="text-center"> </footer>
@@ -199,12 +203,16 @@ let template = `<div id="input{{unique}}" class="input">
 		</div>
 		`;
 let id = 1;
-console.log(template.replace('{{unique}}', id).replace('{{unique}}', id).replace('{{unique}}', id))
-$( "#inputProblem" ).append( template.replace('{{unique}}', id)
-				.replace('{{unique}}', id)
-				.replace('{{unique}}', id)
-				.replace('{{unique}}', id) );
-id++
+
+ 
+function addFunction() {
+	$( "#inputProblem" ).append( template.replace('{{unique}}', id)
+					.replace('{{unique}}', id)
+					.replace('{{unique}}', id)
+					.replace('{{unique}}', id) );
+	id++
+})
+//$('addInput').on("click",
 </script>
 		
 	</body>
