@@ -120,14 +120,21 @@
 			</div>
 			
 			<div>
-				<button onclick="addFunction()">Add an Input</button>
+				<div style="float:left">
+					<button onclick="addInputDiv()">Add an Input</button>
+				</div>
+				<div style="float:right">
+					<button onclick="removeInputDiv()">Remove an Input</button>
+				</div>
 			</div>
+			</br>
 			
 			<div id="inputProblem"></div>
 
-
-    		<br/>
-    		<br/>
+			
+		
+    		<hr>
+			<br/>
 
     		<div class="row">
     			<div class="col-sm-2">
@@ -201,15 +208,18 @@ let template = `<div id="input{{unique}}" class="input">
 				</div>
 			</div>
 		</div>`;
-let id = 1;
-function addFunction() {
-	
+let id = 0;
+function addInputDiv() {
+	id++
 	$( "#inputProblem" ).append( template.replace('{{unique}}', id)
 					.replace('{{unique}}', id)
 					.replace('{{unique}}', id)
 					.replace('{{unique}}', id) );
-	id++
-	console.log(15 + 6);
+}
+	
+function removeInputDiv() {
+	document.getElementById( 'input'+id ).remove();
+	id--
 }
 </script>
 		
