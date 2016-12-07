@@ -129,42 +129,27 @@
 			</div>
 			</br>
 			
-			<div id="inputProblem"></div>
+			<div id="problemInputsDiv"></div>
 
 			
-		
     		<hr>
 			<br/>
-
-    		<div class="row">
-    			<div class="col-sm-2">
-					<label for="usr">Hint 1:</label>
-				</div>
-				<div class="col-sm-10">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<label for="usr">Hint 2:</label>
-				</div>
-				<div class="col-sm-10">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<label for="usr">Hint 3:</label>
-				</div>
-				<div class="col-sm-10">
-					<div class="form-group">
-					  <input type="text" class="form-control" id="usr">
-					</div>
-				</div>
-    		</div>
-
 			
+			<div>
+				<div style="float:left">
+					<button onclick="addHintDiv()">Add a Hint</button>
+				</div>
+				<div style="float:right">
+					<button onclick="removeHintDiv()">Remove a Hint</button>
+				</div>
+			</div>
+			</br>
+			</br>
 			
+
+    		<div id="hintsDiv"></div>
+			
+			</br>
         </div>
     </div>
 </div>
@@ -176,51 +161,78 @@
 
 
 <script>
-let template = `<div id="input{{unique}}" class="input">	
-			<hr>
-			<div>
-				<label for="usr">Input {{unique}}</label>
-				</br>
-				<div class="row">
-					<div class="col-sm-6">
-						<label for="usr">Variable Name:</label>
-					</div>
-					<div class="col-sm-6">
-						<label for="usr">Data Type:</label>
-					</div>
-				</div>
-				<div class="row">	
-					<div class="col-sm-6">
-						<div class="form-group">
-						  <input type="text" class="form-control" id="variableName{{unique}}">
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="form-group">
-							<select class="form-control" id="datatype{{unique}}">
-								<option>int</option>
-								<option>double</option>
-								<option>float</option>
-								<option>char</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>`;
-let id = 0;
-function addInputDiv() {
-	id++
-	$( "#inputProblem" ).append( template.replace('{{unique}}', id)
-					.replace('{{unique}}', id)
-					.replace('{{unique}}', id)
-					.replace('{{unique}}', id) );
-}
-	
-function removeInputDiv() {
-	document.getElementById( 'input'+id ).remove();
-	id--
-}
+//problemInputsDiv
+	let templateInput = `<div id="input{{unique}}" class="input">	
+							<hr>
+							<div>
+								<label for="usr">Input {{unique}}</label>
+								</br>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="usr">Variable Name:</label>
+									</div>
+									<div class="col-sm-6">
+										<label for="usr">Data Type:</label>
+									</div>
+								</div>
+								<div class="row">	
+									<div class="col-sm-6">
+										<div class="form-group">
+										  <input type="text" class="form-control" id="variableName{{unique}}">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<select class="form-control" id="datatype{{unique}}">
+												<option>int</option>
+												<option>double</option>
+												<option>float</option>
+												<option>char</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>`;
+	let id = 0;
+	function addInputDiv() {
+		id++
+		$( "#problemInputsDiv" ).append( templateInput.replace('{{unique}}', id)
+						.replace('{{unique}}', id)
+						.replace('{{unique}}', id)
+						.replace('{{unique}}', id) );
+	}
+		
+	function removeInputDiv() {
+		document.getElementById( 'input'+id ).remove();
+		id--
+	}
+//end problemInputsDiv
+
+//hintsDiv
+	let templateHint = `<div id="hint{{unique}}">	
+							<div class="col-sm-2">
+								<label for="usr">Hint {{unique}}:</label>
+							</div>
+							<div class="col-sm-10">
+								<div class="form-group">
+								  <input type="text" class="form-control" id="hintText{{unique}}">
+								</div>
+							</div>
+						</div>`;
+	let idHint = 0;
+	function addHintDiv() {
+		idHint++
+		$( "#hintsDiv" ).append( templateHint.replace('{{unique}}', idHint)
+						.replace('{{unique}}', idHint)
+						.replace('{{unique}}', idHint) );
+	}
+		
+	function removeHintDiv() {
+		document.getElementById( 'hint'+idHint ).remove();
+		idHint--
+	}
+//end hintsDiv
 </script>
 		
 	</body>
