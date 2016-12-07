@@ -119,38 +119,7 @@
 			<textarea class="form-control" rows="5" id="comment"></textarea>
 		</div>
 		
-		<div id="Input1" class="input">	
-			<hr>
-			<div>
-				<label for="usr">Input</label>
-				</br>
-				<div class="row">
-					<div class="col-sm-6">
-						<label for="usr">Name:</label>
-					</div>
-					<div class="col-sm-6">
-						<label for="usr">Data Type:</label>
-					</div>
-				</div>
-				<div class="row">	
-					<div class="col-sm-6">
-						<div class="form-group">
-						  <input type="text" class="form-control" id="usr">
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="form-group">
-							<select class="form-control" id="sel1">
-								<option>int</option>
-								<option>double</option>
-								<option>float</option>
-								<option>char</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div id="inputProblem"></div>
 
 
     		<br/>
@@ -196,28 +165,46 @@
 
 
 <script>
-/*
-//$( ".in" ).append( "document.getElementById("input")" );
-
-/ get the last DIV which ID starts with ^= "Input"
-var $div = $('div[id^="Input"]:last');
-
-// Read the Number from that DIV's ID (i.e: 3 from "Input3")
-// And increment that number by 1
-var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-
-// Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-var $Input = "#" + $div.clone().prop('id', 'Input'+num );
-//$( $div ).append( $Input );
-
-//$("#input").append(Input);
-//$($Input).insertAfter($div);
-*/
-
-var $Input = "#Input1"
-$($Input).clone().insertAfter("div.input:last");
-
-
+let template = `<div id="input{{unique}}" class="input">	
+			<hr>
+			<div>
+				<label for="usr">Input {{unique}}</label>
+				</br>
+				<div class="row">
+					<div class="col-sm-6">
+						<label for="usr">Variable Name:</label>
+					</div>
+					<div class="col-sm-6">
+						<label for="usr">Data Type:</label>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-sm-6">
+						<div class="form-group">
+						  <input type="text" class="form-control" id="variableName{{unique}}">
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group">
+							<select class="form-control" id="datatype{{unique}}">
+								<option>int</option>
+								<option>double</option>
+								<option>float</option>
+								<option>char</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		`;
+let id = 1;
+console.log(template.replace('{{unique}}', id).replace('{{unique}}', id).replace('{{unique}}', id))
+$( "#inputProblem" ).append( template.replace('{{unique}}', id)
+				.replace('{{unique}}', id)
+				.replace('{{unique}}', id)
+				.replace('{{unique}}', id) );
+id++
 </script>
 		
 	</body>
