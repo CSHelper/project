@@ -204,17 +204,19 @@
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title">Add Test Case</h4>
 			</div>
-			<div class="modal-body">
-				<p>Inputs</p>
-				<div id="modalInputs"> </div>
-				<hr>
-				
-				<p>Output</p>
-				<input type="text" class="form-control" id="modalOutput" required>
-			</div>
-			<div class="modal-footer">
-				<button onclick="addTestDiv()" type="button" class="btn btn-info" data-dismiss="modal">Create</button>
-			</div>
+			<form>	
+				<div class="modal-body">
+					<p>Inputs</p>
+					<div id="modalInputs"> </div>
+					<hr>
+					
+					<p>Output</p>
+					<input type="text" class="form-control" id="modalOutput" required>
+				</div>
+				<div class="modal-footer">
+					<button onclick="addTestDiv()" type="button" class="btn btn-info" id="btnCreateTest" data-dismiss="modal">Create</button>
+				</div>
+			</form>
 		</div>
 
 	</div>
@@ -317,23 +319,44 @@ window.onload = function(){ //On page load
 							<div class="panel-heading" id="test_accordion_title" role="tab" id="">
 								<h3 class="panel-title">
 									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{unique}}" aria-expanded="true" aria-controls="collapse{{unique}}">
-										<i class="floatRight glyphicon glyphicon-chevron-down"></i>
-										Test {{unique}}
+										<i class=" glyphicon glyphicon-chevron-down"></i>&ensp;Test {{unique}}
 									</a>
 								</h3>
 							</div>
 							<div id="collapse{{unique}}" class="panel-collapse collapse test_accordion_body" role="tabpanel" aria-labelledby="headingOne"> <!-- Topic Panel -->
-								Hello
+								<div class="row">
+									<div class="col-sm-1"></div>
+									<div class="col-sm-2">
+										<label>Input:</label>
+									</div>
+									<div class="col-sm-8" id="divTestInputs">
+										<label id="lblInput"></label>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
+								</br>
+								<div class="row">      
+									<div class="col-sm-1"></div>
+									<div class="col-sm-2">
+										<label>Output:</label>
+									</div>
+									<div class="col-sm-8">
+										<p id="lblOutput{{unique}}"></p>
+									</div>
+									<div class="col-sm-1"></div>
+								</div>
 							</div>
 						</div>`;
 	let idTest = 0;
-	function addTestDiv() {
+	function addTestDiv() {		
 		idTest++
 		$( "#testsDiv" ).append( templateTest.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest)
+						.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest) );
+		populateTestDiv();
 	}
 		
 	function removeTestDiv() {
@@ -354,6 +377,26 @@ window.onload = function(){ //On page load
 		}
 	}
 //end modalInputs
+
+
+let counter = 1;
+	function populateTestDiv() {
+		/*while (modalInputCount >= counter)
+		{
+			var value = $('modalInput'+counter ).val();
+			$('test'+idTest).html(value);
+			$('#myModal').modal('hide');
+			counter++
+		}*/
+		
+		var valueOutput = document.getElementById('modalOutput').value; //Get Modal Output
+		document.getElementById('lblOutput'+idTest).innerHTML = valueOutput; //Get Test Output
+		
+		
+		$('#myModal').on('hidden.bs.modal', function () { //Clear Modal
+			$(this).find('form').trigger('reset');
+		})
+	}
 
 </script>
 		

@@ -61,7 +61,8 @@ body {
 }
 
 .test_accordion_body {
-	background-color: #858585;
+	background-color: #white;
+	border: 1px solid #ccc;
 }
 
 .floatRight {
