@@ -114,7 +114,11 @@
 			
 			
 			<div class="form-group">
-				<label for="comment">Input a problem:</label>
+				<label>Problem Name:</label>
+				<input type="text" class="form-control" id="problemName">
+				</br>
+			
+				<label for="comment">Description:</label>
 				<textarea class="form-control" rows="5" id="comment"></textarea>
 			</div>
 			
@@ -132,7 +136,18 @@
 
 			
     		<hr>
-			<br/>
+			
+			<label>Output:</label>
+			<div class="form-group">
+				<select class="form-control" id="datatype{{unique}}">
+					<option>int</option>
+					<option>double</option>
+					<option>float</option>
+					<option>char</option>
+				</select>
+			</div>
+			<hr>
+			</br>
 			
 			<div>
 				<div style="float:left">
@@ -154,10 +169,12 @@
 		
 		
 		<div class="col-sm-3">  <!-- Student List Column -->
-			<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Create Tests</strong></a>
+			<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Test Creation</strong></a>
 			<hr>
 			
 			<div>
+				<label for="comment">Tests:</label>
+				</br>
 				<div style="float:left">
 					<button onclick="addTestDiv()" class="btn btn-primary">Add a Test</button>
 				</div>
@@ -266,12 +283,11 @@ window.onload = function(){ //On page load
 //end hintsDiv
 
 //testsDiv
-	let templateTest = `<div class="panel panel-default test_accordion_title"> <!-- Section Panel -->
+	let templateTest = `<div class="panel panel-default test_accordion_title" id="test{{unique}}"> <!-- Section Panel -->
 							<div class="panel-heading" id="test_accordion_title" role="tab" id="">
 								<h3 class="panel-title">
 									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{unique}}" aria-expanded="true" aria-controls="collapse{{unique}}">
-										<i class="glyphicon glyphicon-chevron-down"></i>
-										&ensp;
+										<i class="floatRight glyphicon glyphicon-chevron-down"></i>
 										Test {{unique}}
 									</a>
 								</h3>
@@ -286,14 +302,20 @@ window.onload = function(){ //On page load
 		$( "#testsDiv" ).append( templateTest.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest)
+						.replace('{{unique}}', idTest)
 						.replace('{{unique}}', idTest) );
 	}
 		
 	function removeTestDiv() {
-		document.getElementById( 'test'+idTest ).remove();
-		idTest--
+		if (idTest > 1)
+		{
+			document.getElementById( 'test'+idTest ).remove();
+			idTest--
+		}
 	}
 //end testsDiv
+
+
 </script>
 		
 	</body>
