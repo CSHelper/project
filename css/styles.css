@@ -33,3 +33,14 @@ footer {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
+
+.selectStudents {
+   -webkit-appearance: menulist-button;
+   height: 84px;
+}
+
+#centerDiv {
+	height: 880px;
+	border-left: 1px solid #dddddd; 
+	border-right: 1px solid #dddddd;
+}

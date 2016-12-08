@@ -54,61 +54,60 @@
 
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">  <!-- Student List Column -->
-			<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Menu</strong></a>
-			<hr>
-
-			<div class="form-group">
-				<label for="sel2">Student List (hold ctrl to select more than one):</label>
-				<select multiple class="form-control" id="sel2">
-					<option>Dustin</option>
-					<option>Sunday</option>
-					<option>Eric</option>
-					<option>Ryan</option>
-					<option>Frank</option>
-					<option>Tommy</option>
-				</select>
-			</div>
-
-			<hr>
-        </div>
-        
+    <div class="row">       
         <div class="col-sm-3"> <!-- Section - Topic - Problem Column (Accordion) -->
-			<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Choose a Problem</strong></a>
+			<a href="#"><strong><i class="glyphicon glyphicon-list"></i> Define Problem</strong></a>
 
 			<hr>
-			<div class="form-group">
-				<label for="sel1">Select Language:</label>
-				<select class="form-control" id="sel1">
-					<option>Java</option>
-					<option>C++</option>
-					<option>C</option>
-					<option>Python</option>
-				</select>
-				</br>
-				</br>
-				</br>
-				<label for="sel1">Select Section:</label> <!--Assuming java basics selected-->
-				<select class="form-control" id="sel1">
-					<option>Java Basics</option>
-					<option>Conditional Statements</option>
-					<option>Loops</option>
-				</select>
-				</br>
-				</br>
-				</br>
-				<label for="sel1">Select Topic:</label> <!--Assuming java basics selected-->
-				<select class="form-control" id="sel1">
-					<option>Data Types</option>
-					<option>If Statements</option>
-					<option>Output</option>
-				</select>
+			<div class="row">       
+				<div class="col-sm-10">
+					<div class="form-group">
+						<label>Select Language:</label>
+						<select class="form-control" id="language">
+							<option>Java</option>
+							<option>C++</option>
+							<option>C</option>
+							<option>Python</option>
+						</select>
+						</br>
+						</br>
+						</br>
+						<label>Select Section:</label> <!--Assuming java basics selected-->
+						<select class="form-control" id="section">
+							<option>Java Basics</option>
+							<option>Conditional Statements</option>
+							<option>Loops</option>
+						</select>
+						</br>
+						</br>
+						</br>
+						<label>Select Topic:</label> <!--Assuming java basics selected-->
+						<select class="form-control" id="topic">
+							<option>Data Types</option>
+							<option>If Statements</option>
+							<option>Output</option>
+						</select>
+						
+						<hr>
+
+						<div class="form-group">
+							<label>Assign Problem to Students: <br><span style="color:#999999">(hold ctrl to select more than one)</span></label>
+							<select multiple class="form-control selectStudents" id="selectStudents">
+								<option>Dustin</option>
+								<option>Sunday</option>
+								<option>Eric</option>
+								<option>Ryan</option>
+								<option>Frank</option>
+								<option>Tommy</option>
+							</select>
+						</div>
+					</div>
+				</div>
 			</div>
         </div>
         
 	
-        <div class="col-sm-7"> <!-- Problem / Attempt Column -->
+        <div class="col-sm-6" > <!-- Problem / Attempt Column -->
 			<a href="#"><strong><i class="glyphicon glyphicon-education"></i> Problem Creation</strong></a>
 
 			<hr>
@@ -121,10 +120,10 @@
 			
 			<div>
 				<div style="float:left">
-					<button onclick="addInputDiv()">Add an Input</button>
+					<button onclick="addInputDiv()" class="btn btn-primary">Add an Input</button>
 				</div>
 				<div style="float:right">
-					<button onclick="removeInputDiv()">Remove an Input</button>
+					<button onclick="removeInputDiv()" class="btn btn-danger">Remove an Input</button>
 				</div>
 			</div>
 			</br>
@@ -137,10 +136,10 @@
 			
 			<div>
 				<div style="float:left">
-					<button onclick="addHintDiv()">Add a Hint</button>
+					<button onclick="addHintDiv()" class="btn btn-primary">Add a Hint</button>
 				</div>
 				<div style="float:right">
-					<button onclick="removeHintDiv()">Remove a Hint</button>
+					<button onclick="removeHintDiv()" class="btn btn-danger">Remove a Hint</button>
 				</div>
 			</div>
 			</br>
@@ -148,8 +147,28 @@
 			
 
     		<div id="hintsDiv"></div>
-			
+				
 			</br>
+        </div>
+		
+		
+		
+		<div class="col-sm-3">  <!-- Student List Column -->
+			<a href="#"><strong><i class="glyphicon glyphicon-wrench"></i> Create Tests</strong></a>
+			<hr>
+			
+			<div>
+				<div style="float:left">
+					<button onclick="addTestDiv()" class="btn btn-primary">Add a Test</button>
+				</div>
+				<div style="float:right">
+					<button onclick="removeTestDiv()" class="btn btn-danger">Remove a Test</button>
+				</div>
+			</div>
+			</br>
+			</br>
+			
+			<div id="testsDiv"></div>
         </div>
     </div>
 </div>
@@ -161,6 +180,12 @@
 
 
 <script>
+window.onload = function(){ //On page load
+  addInputDiv();//Create one Input
+  addHintDiv();//Create one Hint
+  addTestDiv();
+};
+
 //problemInputsDiv
 	let templateInput = `<div id="input{{unique}}" class="input">	
 							<hr>
@@ -204,8 +229,11 @@
 	}
 		
 	function removeInputDiv() {
-		document.getElementById( 'input'+id ).remove();
-		id--
+		if (id > 1)
+		{
+			document.getElementById( 'input'+id ).remove();
+			id--
+		}
 	}
 //end problemInputsDiv
 
@@ -229,10 +257,43 @@
 	}
 		
 	function removeHintDiv() {
-		document.getElementById( 'hint'+idHint ).remove();
-		idHint--
+		if (idHint > 1)
+		{
+			document.getElementById( 'hint'+idHint ).remove();
+			idHint--
+		}
 	}
 //end hintsDiv
+
+//testsDiv
+	let templateTest = `<div class="panel panel-default test_accordion_title"> <!-- Section Panel -->
+							<div class="panel-heading" id="test_accordion_title" role="tab" id="">
+								<h3 class="panel-title">
+									<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{unique}}" aria-expanded="true" aria-controls="collapse{{unique}}">
+										<i class="glyphicon glyphicon-chevron-down"></i>
+										&ensp;
+										Test {{unique}}
+									</a>
+								</h3>
+							</div>
+							<div id="collapse{{unique}}" class="panel-collapse collapse test_accordion_body" role="tabpanel" aria-labelledby="headingOne"> <!-- Topic Panel -->
+								Hello
+							</div>
+						</div>`;
+	let idTest = 0;
+	function addTestDiv() {
+		idTest++
+		$( "#testsDiv" ).append( templateTest.replace('{{unique}}', idTest)
+						.replace('{{unique}}', idTest)
+						.replace('{{unique}}', idTest)
+						.replace('{{unique}}', idTest) );
+	}
+		
+	function removeTestDiv() {
+		document.getElementById( 'test'+idTest ).remove();
+		idTest--
+	}
+//end testsDiv
 </script>
 		
 	</body>

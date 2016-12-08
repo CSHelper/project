@@ -1,7 +1,3 @@
-/*******************************
-* Does not work properly if "in" is added after "collapse".
-* Get free snippets on bootpen.com
-*******************************/
     .panel-group .panel {
         border-radius: 0;
         box-shadow: none;
@@ -35,7 +31,7 @@
         border-top-color: #EEEEEE;
     }
 
-/* ----- v CAN BE DELETED v ----- */
+
 body {
     background-color: #26a69a;
 }
@@ -59,3 +55,11 @@ body {
 	text-indent: 32px;
 }
 
+#test_accordion_title {
+	background-color: #515151;
+	color: white;
+}
+
+.test_accordion_body {
+	background-color: #858585;
+}
