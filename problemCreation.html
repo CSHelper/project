@@ -210,10 +210,10 @@
 				<hr>
 				
 				<p>Output</p>
-				<input type="text" class="form-control" id="modalOutput">
+				<input type="text" class="form-control" id="modalOutput" required>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-info" data-dismiss="modal">Create</button>
+				<button onclick="addTestDiv()" type="button" class="btn btn-info" data-dismiss="modal">Create</button>
 			</div>
 		</div>
 
@@ -346,7 +346,7 @@ window.onload = function(){ //On page load
 //end testsDiv
 
 //modalInputs
-	let templateModalInput = `<input type="text" class="form-control" id="modalInput{{unique}}">
+	let templateModalInput = `<input type="text" class="form-control" id="modalInput{{unique}}" required>
 							</br>`;
 	let modalInputCount = 0;
 	function modalInputs() {
